@@ -1,8 +1,8 @@
 {
-  "name": "feathers-sequelize",
+  "name": "feathers-typeorm",
   "description": "A service adapter for Sequelize an SQL ORM",
   "version": "7.0.2",
-  "homepage": "https://github.com/feathersjs-ecosystem/feathers-sequelize",
+  "homepage": "https://github.com/feathersjs-ecosystem/feathers-typeorm",
   "main": "lib/",
   "types": "lib/",
   "keywords": [
@@ -21,7 +21,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/feathersjs-ecosystem/feathers-sequelize.git"
+    "url": "git://github.com/feathersjs-ecosystem/feathers-typeorm.git"
   },
   "author": {
     "name": "Feathers contributors",
@@ -30,7 +30,7 @@
   },
   "contributors": [],
   "bugs": {
-    "url": "https://github.com/feathersjs-ecosystem/feathers-sequelize/issues"
+    "url": "https://github.com/feathersjs-ecosystem/feathers-typeorm/issues"
   },
   "engines": {
     "node": ">= 14"
@@ -46,7 +46,7 @@
     "prepublishOnly": "npm run compile",
     "compile": "shx rm -rf lib/ && tsc",
     "publish": "git push origin --tags && npm run changelog && git push origin",
-    "changelog": "github_changelog_generator -u feathersjs-ecosystem -p feathers-sequelize && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
+    "changelog": "github_changelog_generator -u feathersjs-ecosystem -p feathers-typeorm && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
     "update-dependencies": "ncu -u",
     "release:prerelease": "npm version prerelease --preid pre && npm publish --tag pre",
     "release:patch": "npm version patch && npm publish",

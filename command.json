@@ -1,0 +1,15 @@
+{
+    "prepublishOnly": "npm run compile",
+    "compile": "shx rm -rf lib/ && tsc",
+    "publish": "git push origin --tags && npm run changelog && git push origin",
+    "changelog": "github_changelog_generator -u feathersjs-ecosystem -p feathers-typeorm && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
+    "update-dependencies": "ncu -u",
+    "release:prerelease": "npm version prerelease --preid pre && npm publish --tag pre",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "lint": "eslint src/**/*.ts test/**/*.ts --fix",
+    "mocha": "mocha --require ts-node/register",
+    "test": "npm run lint && npm run coverage",
+    "coverage": "c8 npm run mocha"
+}

@@ -2,7 +2,10 @@ import type { HookContext } from '@feathersjs/feathers';
 import type { ModelStatic, Model, Includeable } from 'sequelize';
 import type { HydrateOptions } from '../declarations';
 
-const factory = (Model: ModelStatic<Model>, include?: Includeable | Includeable[]) => {
+const factory = (
+  Model: ModelStatic<Model>,
+  include?: Includeable | Includeable[]
+) => {
   return (item: any) => {
     // (Darren): We have to check that the Model.Instance static property exists
     // first since it's been deprecated in Sequelize 4.x.
@@ -17,12 +20,16 @@ const factory = (Model: ModelStatic<Model>, include?: Includeable | Includeable[
   };
 };
 
-export const hydrate = <H extends HookContext = HookContext>(options?: HydrateOptions) => {
+export const hydrate = <H extends HookContext = HookContext>(
+  options?: HydrateOptions
+) => {
   options = options || {};
 
   return (context: H) => {
     if (context.type !== 'after') {
-      throw new Error('feathers-sequelize hydrate() - should only be used as an "after" hook');
+      throw new Error(
+        'feathers-typeorm hydrate() - should only be used as an "after" hook'
+      );
     }
 
     const makeInstance = factory(context.service.Model, options.include);
